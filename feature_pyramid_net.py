@@ -73,10 +73,10 @@ class FPN(nn.Module):
 
 
 def FPN101():
-    return FPN(tent, [2,2,2,2])
+    return FPN(tent, [32,64,64,128])
 def test():
     net = FPN101()
-    fms = net(Variable(torch.randn(1,3,600,900)))
+    fms = net(Variable(torch.randn(1,3,300,600)))
     for fm in fms:
         print(fm.size())
 
